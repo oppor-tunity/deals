@@ -41,6 +41,19 @@ app.get('/api/deals', async (req, res) => {
   }
 });
 
+// Endpoint to create a new deal
+app.post('/api/deals', async (req, res) => {
+  const { title, description, category } = req.body;
+
+  try {
+    const newDeal = new Deal({ title, description, category });
+    const savedDeal = await newDeal.save();
+    res.json(savedDeal);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

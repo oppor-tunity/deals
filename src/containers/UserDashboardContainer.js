@@ -1,6 +1,6 @@
 // UserDashboardContainer.js
 import React, { useState, useEffect } from 'react';
-import UserProfile from './src/components/UserProfile';
+import UserProfile from '../components/UserProfile';
 
 const UserDashboardContainer = ({ userId }) => {
   const [userDetails, setUserDetails] = useState(null);

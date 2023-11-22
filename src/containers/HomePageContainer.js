@@ -1,6 +1,6 @@
 // HomePageContainer.js
 import React, { useState, useEffect } from 'react';
-import DealList from './src/components/DealList';
+import DealList from '../components/DealList';
 
 const HomePageContainer = () => {
   const [deals, setDeals] = useState([]);

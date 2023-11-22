@@ -1,6 +1,6 @@
 // CategoryPageContainer.js
 import React, { useState, useEffect } from 'react';
-import DealList from './src/components/DealList';
+import DealList from '../components/DealList';
 
 const CategoryPageContainer = ({ category }) => {
   const [categoryDeals, setCategoryDeals] = useState([]);

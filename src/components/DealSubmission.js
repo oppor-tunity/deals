@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const DealSubmission = () => {
   const [formData, setFormData] = useState({
@@ -15,15 +16,27 @@ const DealSubmission = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+
+  const mongoDataApiKey = process.env.MONGODB_DATAAPIKEY;
+
     try {
-      const response = await fetch('http://localhost:3001/api/deals', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post(
+        'https://eu-central-1.aws.data.mongodb-api.com/app/data-oiiap/endpoint/data/v1/dealscollection',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'api-key': mongoDataApiKey,
+
+
+            const mongoURI = process.env.MONGODB_URI;
+            mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+          },
+        }
+      );
   
       if (response.ok) {
         // Deal successfully submitted, you can handle the response as needed

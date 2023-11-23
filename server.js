@@ -1,5 +1,8 @@
 require('dotenv').config(); // Load environment variables from .env file
 
+// Log the value of MONGODB_URI
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');

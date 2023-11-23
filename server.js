@@ -54,6 +54,7 @@ app.post('/api/submit-deal', async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error('Error submitting deal:', error);
+    console.error('Error details:', error.response.data);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

@@ -1,5 +1,6 @@
 // Header.js
 import React, { useState } from 'react';
+import DealSubmission from '../components/DealSubmission';
 import { Link } from 'react-router-dom';
 
 const Header = () => {

@@ -50,7 +50,6 @@ const DealSubmission = () => {
       <h2>Submit a Deal</h2>
       <form onSubmit={handleSubmit}>
         {/* Form fields for deal submission */}
-        {/* Example: Title input */}
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -60,7 +59,83 @@ const DealSubmission = () => {
           onChange={handleChange}
           required
         />
-        {/* Add other form fields as needed */}
+
+        <label htmlFor="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="category">Category:</label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="dealLink">Deal Link:</label>
+        <input
+          type="text"
+          id="dealLink"
+          name="dealLink"
+          value={formData.dealLink}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="originalPrice">Original Price:</label>
+        <input
+          type="text"
+          id="originalPrice"
+          name="originalPrice"
+          value={formData.originalPrice}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="dealPrice">Deal Price:</label>
+        <input
+          type="text"
+          id="dealPrice"
+          name="dealPrice"
+          value={formData.dealPrice}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="discountCode">Discount Code:</label>
+        <input
+          type="text"
+          id="discountCode"
+          name="discountCode"
+          value={formData.discountCode}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="shippingCost">Shipping Cost:</label>
+        <input
+          type="text"
+          id="shippingCost"
+          name="shippingCost"
+          value={formData.shippingCost}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="dealType">Deal Type:</label>
+        <input
+          type="text"
+          id="dealType"
+          name="dealType"
+          value={formData.dealType}
+          onChange={handleChange}
+        />
+
         <button type="submit">Submit Deal</button>
       </form>
     </div>

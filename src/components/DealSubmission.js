@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 const DealSubmission = () => {
   const [formData, setFormData] = useState({
+    dealLink: '',
     title: '',
     description: '',
     category: '',
-    dealLink: '',
     originalPrice: 0,
     dealPrice: 0,
     discountCode: '',
@@ -15,7 +15,7 @@ const DealSubmission = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await fetch('http://localhost:3001/api/deals', {
         method: 'POST',
@@ -24,10 +24,22 @@ const DealSubmission = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         // Deal successfully submitted, you can handle the response as needed
         console.log('Deal submitted successfully!');
+        // Optionally, reset the form after submission
+        setFormData({
+          dealLink: '',
+          title: '',
+          description: '',
+          category: '',
+          originalPrice: 0,
+          dealPrice: 0,
+          discountCode: '',
+          shippingCost: 0,
+          dealType: '',
+        });
       } else {
         // Handle error cases
         console.error('Failed to submit deal');
@@ -36,6 +48,7 @@ const DealSubmission = () => {
       console.error('Error submitting deal:', error);
     }
   };
+  
 
   const handleChange = (e) => {
     setFormData({

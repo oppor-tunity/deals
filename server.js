@@ -7,10 +7,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const cors = require('cors');
 
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URI;
@@ -20,6 +21,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 app.use(bodyParser.json());
 
 // Define your MongoDB schema and model

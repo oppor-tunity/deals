@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables from .env file
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // MongoDB connection
-const mongoURI = 'mongodb+srv://philipoppor:J39s1wijGkF4fbhQ@cluster0.hq7cyum.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGODB_URI;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Body parser middleware

@@ -47,7 +47,9 @@ const Header = () => {
       <div className="profile-link">
         <Link to="/user-profile">Ditt Profil</Link>
       </div>
-
+      <div className="log">
+        console.log('MONGODB_URI:', process.env.MONGODB_URI)
+      </div>
     </header>
   );
 };

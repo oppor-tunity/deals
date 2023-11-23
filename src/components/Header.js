@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [showCategories, setShowCategories] = useState(false);
-  const [showDealSubmission, setShowDealSubmission] = useState(false);
 
   const toggleCategories = () => {
     setShowCategories(!showCategories);
-  };
-
-  const toggleDealSubmission = () => {
-    setShowDealSubmission(!showDealSubmission);
   };
 
   return (
@@ -53,8 +48,6 @@ const Header = () => {
         <Link to="/user-profile">Ditt Profil</Link>
       </div>
 
-      {/* DealSubmission component, conditionally rendered */}
-      {showDealSubmission && <DealSubmission />}
     </header>
   );
 };

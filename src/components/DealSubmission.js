@@ -14,25 +14,13 @@ const DealSubmission = () => {
     dealType: '',
   });
 
-  const mongoDataApiKey = process.env.MONGODB_DATAAPIKEY;
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        'https://eu-central-1.aws.data.mongodb-api.com/app/data-oiiap/endpoint/data/v1/dealscollection',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'api-key': mongoDataApiKey,
-          },
-        }
-      );
-  
-      if (response.ok) {
+      const response = await axios.post('http://localhost:3001/api/submit-deal', formData);
+
+      if (response.status === 200) {
         // Deal successfully submitted, you can handle the response as needed
         console.log('Deal submitted successfully!');
         // Optionally, reset the form after submission

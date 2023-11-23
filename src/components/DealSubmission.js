@@ -8,10 +8,10 @@ const DealSubmission = () => {
     title: '',
     description: '',
     category: '',
-    originalPrice: 0,
-    dealPrice: 0,
+    originalPrice: '',
+    dealPrice: '',
     discountCode: '',
-    shippingCost: 0,
+    shippingCost: '',
     dealType: '',
   });
 
@@ -32,7 +32,15 @@ const DealSubmission = () => {
         console.log('Deal submitted successfully!');
         // Reset the form after submission
         setFormData({
-          // ... (existing code)
+          dealLink: '',
+          title: '',
+          description: '',
+          category: '',
+          originalPrice: '',
+          dealPrice: '',
+          discountCode: '',
+          shippingCost: '',
+          dealType: '',
         });
       } else {
         // Handle error cases

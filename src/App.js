@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.js (React Router v6)
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
@@ -14,10 +14,10 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" exact component={HomePageContainer} />
-          <Route path="/category/:category" component={CategoryPageContainer} />
-          <Route path="/user/:userId" component={UserDashboardContainer} />
-          <Route path="/add-deal" component={DealFormPage} />
+          <Route path="/" element={<HomePageContainer />} />
+          <Route path="/category/:category" element={<CategoryPageContainer />} />
+          <Route path="/user/:userId" element={<UserDashboardContainer />} />
+          <Route path="/add-deal" element={<DealFormPage />} />
         </Routes>
         <Footer />
       </div>

@@ -23,7 +23,7 @@ const DealSubmission = () => {
       if (response.status === 200) {
         // Deal successfully submitted, you can handle the response as needed
         console.log('Deal submitted successfully!');
-        // Optionally, reset the form after submission
+        // Reset the form after submission
         setFormData({
           dealLink: '',
           title: '',

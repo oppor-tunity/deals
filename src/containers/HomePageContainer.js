@@ -9,7 +9,7 @@ const HomePageContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/deals');
+        const response = await fetch('http://localhost:3001/api/deals');
         const data = await response.json();
         setDeals(data);
       } catch (error) {

@@ -21,9 +21,7 @@ app.use(cors());
 const mongoURI = process.env.MONGODB_URI;
 const mongoDataApiKey = process.env.MONGODB_DATA_API_KEY;
 mongoose.connect(mongoURI,
-   {
-      useNewUrlParser: true, 
-      useUnifiedTopology: true }
+   {}
 );
 
 const db = mongoose.connection;
@@ -31,8 +29,6 @@ db.on("error", console.error.bind(console, "connection failed: "));
 db.once("open", function () {
     console.log("Connected to the database successfully")
 });
-
-
 
 
 // Define your MongoDB schema and model
@@ -49,6 +45,13 @@ const dealSchema = new mongoose.Schema({
 });
 
 const Deal = mongoose.model('Deal', dealSchema);
+
+// Add logging for all incoming requests
+app.use((req, res, next) => {
+  console.log(`Received request: ${req.method} ${req.url}`);
+  next();
+});
+
 
 // Handle POST requests to /api/add-deal
 app.post('/api/add-deal', async (req, res) => {

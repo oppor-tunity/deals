@@ -1,4 +1,3 @@
-// DealSubmission.js
 import React, { useState } from 'react';
 
 const DealSubmission = () => {
@@ -7,10 +6,10 @@ const DealSubmission = () => {
     description: '',
     category: '',
     dealLink: '',
-    originalPrice: '',
-    dealPrice: '',
+    originalPrice: 0,
+    dealPrice: 0,
     discountCode: '',
-    shippingCost: '',
+    shippingCost: 0,
     dealType: '',
   });
 
@@ -67,7 +66,7 @@ const DealSubmission = () => {
           value={formData.description}
           onChange={handleChange}
           required
-        />
+        ></textarea>
 
         <label htmlFor="category">Category:</label>
         <input
@@ -91,7 +90,7 @@ const DealSubmission = () => {
 
         <label htmlFor="originalPrice">Original Price:</label>
         <input
-          type="text"
+          type="number"
           id="originalPrice"
           name="originalPrice"
           value={formData.originalPrice}
@@ -101,7 +100,7 @@ const DealSubmission = () => {
 
         <label htmlFor="dealPrice">Deal Price:</label>
         <input
-          type="text"
+          type="number"
           id="dealPrice"
           name="dealPrice"
           value={formData.dealPrice}
@@ -120,7 +119,7 @@ const DealSubmission = () => {
 
         <label htmlFor="shippingCost">Shipping Cost:</label>
         <input
-          type="text"
+          type="number"
           id="shippingCost"
           name="shippingCost"
           value={formData.shippingCost}

@@ -1,7 +1,6 @@
 //DealSubmission.js
 
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const DealSubmission = () => {
   const [formData, setFormData] = useState({

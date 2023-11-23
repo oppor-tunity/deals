@@ -76,6 +76,11 @@ app.get('/api/deals', async (req, res) => {
   }
 });
 
+// Catch-all route to serve the React application
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

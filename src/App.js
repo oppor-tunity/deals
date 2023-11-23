@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import HomePageContainer from './containers/HomePageContainer';
 import CategoryPageContainer from './containers/CategoryPageContainer';
 import UserDashboardContainer from './containers/UserDashboardContainer';
-import DealSubmission from './components/DealSubmission';
+import DealFormPage from './components/DealFormPage';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" exact component={HomePageContainer} />
           <Route path="/category/:category" component={CategoryPageContainer} />
           <Route path="/user/:userId" component={UserDashboardContainer} />
-          <Route path="/add-deal" component={DealSubmission} />
+          <Route path="/add-deal" component={DealFormPage} />
         </Routes>
         <Footer />
       </div>

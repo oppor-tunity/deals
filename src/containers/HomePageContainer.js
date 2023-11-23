@@ -1,4 +1,5 @@
 // HomePageContainer.js
+
 import React, { useState, useEffect } from 'react';
 import DealList from '../components/DealList';
 
@@ -6,25 +7,18 @@ const HomePageContainer = () => {
   const [deals, setDeals] = useState([]);
 
   useEffect(() => {
-    // Fetch deals from the API (adjust as needed)
     const fetchData = async () => {
       try {
-        // Fetch deals sorted by rating
-        const response = await fetch('/api/deals?sortBy=rating');
-        if (!response.ok) {
-          console.error('Error fetching deals:', response.status, response.statusText);
-          // Handle the error here, for example, by setting an error state
-          return;
-        }
+        const response = await fetch('/api/deals');
         const data = await response.json();
         setDeals(data);
-              } catch (error) {
+      } catch (error) {
         console.error('Error fetching deals:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, []); // Run once when the component mounts
 
   return (
     <div className="home-page-container">

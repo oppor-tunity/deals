@@ -64,6 +64,18 @@ app.post('/api/add-deal', async (req, res) => {
   }
 });
 
+
+// Handle GET requests to /api/deals
+app.get('/api/deals', async (req, res) => {
+  try {
+    const deals = await Deal.find();
+    res.json(deals);
+  } catch (error) {
+    console.error('Error fetching deals:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

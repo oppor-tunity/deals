@@ -14,11 +14,11 @@ const DealSubmission = () => {
     dealType: '',
   });
 
+  const mongoDataApiKey = process.env.MONGODB_DATAAPIKEY;
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-  const mongoDataApiKey = process.env.MONGODB_DATAAPIKEY;
 
     try {
       const response = await axios.post(
@@ -28,12 +28,6 @@ const DealSubmission = () => {
           headers: {
             'Content-Type': 'application/json',
             'api-key': mongoDataApiKey,
-
-
-            const mongoURI = process.env.MONGODB_URI;
-            mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-
           },
         }
       );

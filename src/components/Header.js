@@ -24,9 +24,7 @@ const Header = () => {
       <nav>
         <ul>
           <li><Link to="/">Hem</Link></li>
-          <li>
-            <button onClick={toggleDealSubmission}>Lägg Till Deal</button>
-          </li>
+          <li><Link to="/add-deal">Lägg Till Deal</Link></li>
           <li>
             <button onClick={toggleCategories}>Kategorier</button>
             {showCategories && (

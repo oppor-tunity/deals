@@ -1,3 +1,5 @@
+//DealSubmission.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -16,24 +18,22 @@ const DealSubmission = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post('http://localhost:3001/api/submit-deal', formData);
-
-      if (response.status === 200) {
+      const response = await fetch('http://localhost:3001/api/add-deal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
         // Deal successfully submitted, you can handle the response as needed
         console.log('Deal submitted successfully!');
         // Reset the form after submission
         setFormData({
-          dealLink: '',
-          title: '',
-          description: '',
-          category: '',
-          originalPrice: 0,
-          dealPrice: 0,
-          discountCode: '',
-          shippingCost: 0,
-          dealType: '',
+          // ... (existing code)
         });
       } else {
         // Handle error cases
@@ -57,6 +57,16 @@ const DealSubmission = () => {
       <h2>Submit a Deal</h2>
       <form onSubmit={handleSubmit}>
         {/* Form fields for deal submission */}
+        <label htmlFor="dealLink">Deal Link:</label>
+        <input
+          type="text"
+          id="dealLink"
+          name="dealLink"
+          value={formData.dealLink}
+          onChange={handleChange}
+          required
+        />
+        
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -82,16 +92,6 @@ const DealSubmission = () => {
           id="category"
           name="category"
           value={formData.category}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="dealLink">Deal Link:</label>
-        <input
-          type="text"
-          id="dealLink"
-          name="dealLink"
-          value={formData.dealLink}
           onChange={handleChange}
           required
         />

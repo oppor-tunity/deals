@@ -1,3 +1,5 @@
+//Deal.js
+
 const mongoose = require('mongoose');
 
 const dealSchema = new mongoose.Schema({

@@ -1,3 +1,5 @@
+//server.js
+
 require('dotenv').config(); // Load environment variables from .env file
 
 // Log the value of MONGODB_URI
@@ -5,24 +7,33 @@ console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const axios = require('axios');
 const cors = require('cors');
 
 
 const app = express();
+app.use(express.json())
 const port = 3001;
+
+// Use the cors middleware
+app.use(cors());
 
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URI;
 const mongoDataApiKey = process.env.MONGODB_DATA_API_KEY;
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoURI,
+   {
+      useNewUrlParser: true, 
+      useUnifiedTopology: true }
+);
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection failed: "));
+db.once("open", function () {
+    console.log("Connected to the database successfully")
+});
 
 
-// Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-app.use(bodyParser.json());
+
 
 // Define your MongoDB schema and model
 const dealSchema = new mongoose.Schema({
@@ -39,24 +50,16 @@ const dealSchema = new mongoose.Schema({
 
 const Deal = mongoose.model('Deal', dealSchema);
 
-// Handle POST requests to /api/deals
-app.post('/api/submit-deal', async (req, res) => {
+// Handle POST requests to /api/add-deal
+app.post('/api/add-deal', async (req, res) => {
   try {
-    const response = await axios.post(
-      'https://eu-central-1.aws.data.mongodb-api.com/app/data-oiiap/endpoint/data/v1/dealscollection',
-      req.body,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': mongoDataApiKey,
-        },
-      }
-    );
+    // Assuming 'req.body' contains the deal information
+    const newDeal = new Deal(req.body);
+    const savedDeal = await newDeal.save();
 
-    res.json(response.data);
+    res.status(201).json(savedDeal); // 201 Created for successful creation
   } catch (error) {
     console.error('Error submitting deal:', error);
-    console.error('Error details:', error.response.data);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

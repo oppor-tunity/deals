@@ -11,9 +11,14 @@ const HomePageContainer = () => {
       try {
         // Fetch deals sorted by rating
         const response = await fetch('/api/deals?sortBy=rating');
+        if (!response.ok) {
+          console.error('Error fetching deals:', response.status, response.statusText);
+          // Handle the error here, for example, by setting an error state
+          return;
+        }
         const data = await response.json();
         setDeals(data);
-      } catch (error) {
+              } catch (error) {
         console.error('Error fetching deals:', error);
       }
     };

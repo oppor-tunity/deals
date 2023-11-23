@@ -1,9 +1,11 @@
 // Footer.js
+
 import React from 'react';
+import './Footer.css'; // Create a new CSS file for styling
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <nav>
         <ul>
           <li><a href="/about-us">Om Oss</a></li>

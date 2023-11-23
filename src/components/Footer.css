@@ -1,0 +1,22 @@
+/* Footer.css */
+
+.footer {
+    background-color: #333; /* Dark gray color for the footer */
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  

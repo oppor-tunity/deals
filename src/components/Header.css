@@ -1,0 +1,71 @@
+/* Header.css */
+
+.header {
+    background-color: #3498db; /* Blue color for the header */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: left;
+    color: #fff; /* White color for the text */
+  }
+  
+  .logo img {
+    width: 40px; /* Adjust the logo size as needed */
+    margin-right: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .actions a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .category-overlay {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  .category-overlay ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-overlay li {
+    margin-bottom: 10px;
+  }
+ 
+  .profile-link {
+    align-items: right;
+  }
+  

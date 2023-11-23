@@ -1,0 +1,93 @@
+/* DealCard.css */
+
+.deal-card {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 70%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the card on the screen */
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .deal-image-container {
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .deal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .deal-content {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 70%;
+  }
+  
+  .deal-rating {
+    /* Add your rating widget styling here */
+  }
+  
+  .deal-title {
+    margin-bottom: 10px;
+  }
+  
+  .deal-title a {
+    text-decoration: none;
+    color: #333; /* Add your preferred title color */
+  }
+  
+  .deal-prices {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .discounted-price {
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    margin-right: 10px;
+    color: #888; /* Add your preferred original price color */
+  }
+  
+  .discount-percentage {
+    color: #e74c3c; /* Add your preferred discount percentage color */
+  }
+  
+  .deal-description {
+    max-height: 100px; /* Adjust as needed */
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .deal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .author {
+    color: #777; /* Add your preferred author color */
+  }
+  
+  .deal-link-button {
+    padding: 8px 16px;
+    background-color: #3498db; /* Add your preferred button color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deal-link-button:hover {
+    background-color: #2980b9; /* Add your preferred button hover color */
+  }
+  
